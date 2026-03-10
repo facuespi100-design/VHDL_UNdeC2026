@@ -39,6 +39,7 @@ begin
 	estimulos: process
 	begin
 		t_sel <= "00";
+		t_B <= '1';
 		wait for 1 ms;
 		t_sel <= "01";
 		t_A <= '1';
