@@ -2,10 +2,10 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity tb_mux is
-end entity tb_mux;
+entity mux_tb is
+end entity mux_tb;
 
-architecture test_mux of tb_mux is
+architecture test_mux of mux_tb is
 	
 	--Declaración de componentes
 	component mux
