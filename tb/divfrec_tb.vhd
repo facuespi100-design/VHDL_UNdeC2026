@@ -14,12 +14,12 @@ architecture test_div of divfrec_tb is
         );
     end component;
 
-    signal clk_tb, rst_tb, clk_1hz_tb : std_logic    
+    signal clk_tb, rst_tb, clk_1hz_tb : std_logic;    
 
     begin
     
     mi_divisor: divfrec
-     portmap( clk => clk_tb,
+     port map( clk => clk_tb,
               rst => rst_tb,
               clk_1hz => clk_1hz_tb);
 

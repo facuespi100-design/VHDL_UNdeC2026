@@ -23,11 +23,11 @@ begin
    begin
        if rst = '1' then
            data_out_aux <= '0';
-           contador <= 0;
+           contador <= (others => '0');
        elsif rising_edge(clk) then
             if contador = const1HZ then
                 data_out_aux <= not data_out_aux;
-                contador <= 0;
+                contador <= (others => '0');
             else
                 contador <= contador + 1;
             end if;

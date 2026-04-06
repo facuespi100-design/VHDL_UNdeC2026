@@ -23,7 +23,7 @@ begin
         elsif rising_edge(clk) then
             q <= d;
         end if;
-    end process
+    end process;
 
 end architecture;
 
