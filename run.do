@@ -30,6 +30,12 @@ proc banner {msg} {
     puts "=====================================================================\n"
 }
 
+set wlft_files [glob -nocomplain wlft*]
+if {[llength $wlft_files] > 0} {
+    puts "Eliminando archivos wlft: $wlft_files"
+    file delete -force {*}$wlft_files
+}
+
 # -----------------------------
 # 0. Librería work
 # -----------------------------
@@ -96,37 +102,17 @@ if {[llength $tb_files] == 0} {
 # -----------------------------
 banner "STARTING SIMULATION: $TOP"
 
-# Log de todas las señales
-# log -r /*
-
-
 # Elaborar y correr
-# (Si querés optimización agresiva, podés agregar -voptargs="+acc")
-# vsim $TOP
-
 vsim -voptargs=+acc $WORK_LIB.$TOP
 
 # Si estás en GUI, agregamos waves
 if {![batch_mode]} {
     add wave -r /*
 }
-
 run 50ms
 
 # Si estás en batch (-c), terminamos
 if {[batch_mode]} {
     quit -f
 }
-# ``
-
-
-# vdel -all
-# vlib work
-# vmap work work
-# vcom rtl/mux.vhd
-# vcom tb/mux_tb.vhd
-# vsim -voptargs=+acc work.mux_tb
-# add wave -r /*
-# run 50ms
-
 # vsim -do run.do
