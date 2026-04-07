@@ -44,8 +44,8 @@ set_property PACKAGE_PIN W5 [get_ports clk_in]
  
 
 ## LEDs
-#set_property PACKAGE_PIN U16 [get_ports {data_out[0]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {data_out[0]}]
+set_property PACKAGE_PIN U16 [get_ports {clk_out}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {clk_out}]
 #set_property PACKAGE_PIN E19 [get_ports {data_out[1]}]					
 #	set_property IOSTANDARD LVCMOS33 [get_ports {data_out[1]}]
 #set_property PACKAGE_PIN U19 [get_ports {data_out[2]}]					
@@ -108,8 +108,8 @@ set_property PACKAGE_PIN V13 [get_ports {pin_out}]
 
 
 ##Buttons
-set_property PACKAGE_PIN U18 [get_ports rst_in]						
-	set_property IOSTANDARD LVCMOS33 [get_ports rst_in]
+set_property PACKAGE_PIN U18 [get_ports rst]						
+	set_property IOSTANDARD LVCMOS33 [get_ports rst]
 #set_property PACKAGE_PIN T18 [get_ports btnU]						
 	#set_property IOSTANDARD LVCMOS33 [get_ports btnU]
 #set_property PACKAGE_PIN W19 [get_ports btnL]						
