@@ -6,14 +6,12 @@ use ieee.math_real.all;
 --Declara la interfaz del bloque
 entity divfrec is
   generic (
-    OUTPUT_FREQ : natural 
-    --:= 100000000/2 --1Hz
-    := 2 --debug
+    OUTPUT_FREQ : natural := 100000000/2 --1Hz
   );
   port (
-    clk : in std_logic;
+    clk_in : in std_logic;
     rst : in std_logic;
-    clk_1hz : out std_logic
+    clk_out : out std_logic
     );
 end entity divfrec;
 
@@ -22,13 +20,13 @@ architecture beh of divfrec is
    signal contador : unsigned(integer(ceil(log2(real(OUTPUT_FREQ))))-1 downto 0);
    signal data_out_aux : std_logic;
 begin
-   clk_1hz <= data_out_aux;
-   process(rst, clk) 
+   clk_out <= data_out_aux;
+   process(rst, clk_in) 
    begin
        if rst = '1' then
            data_out_aux <= '0';
            contador <= (others => '0');
-       elsif rising_edge(clk) then
+       elsif rising_edge(clk_in) then
             if contador = OUTPUT_FREQ then
                 data_out_aux <= not data_out_aux;
                 contador <= (others => '0');

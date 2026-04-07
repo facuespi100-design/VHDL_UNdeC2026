@@ -18,7 +18,7 @@
 set RTL_DIR rtl
 set TB_DIR  tb
 set WORK_LIB work
-set TOP mux_tb      ;# <-- Cambiar si tu testbench se llama distinto
+set TOP divfrec_tb      ;# <-- Cambiar si tu testbench se llama distinto
 set VHDL_STD "-2008" ;# Podés usar "-93" o "-2002" si lo necesitás
 
 # -----------------------------
@@ -109,7 +109,7 @@ vsim -voptargs=+acc $WORK_LIB.$TOP
 if {![batch_mode]} {
     add wave -r /*
 }
-run 50ms
+run 200ms
 
 # Si estás en batch (-c), terminamos
 if {[batch_mode]} {
